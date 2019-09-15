@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission2Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="row">
+    <div class="col-md-12">
+        <h1 align="center">Mission to Mars</h1>
+
+        <p align="center">
+            <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Data</a>
+        </p>
+    </div>
+    </div>  
+
+<div class="container"><div class = "row"> <hr></div></div>
+
+{% for data in mars %}
+
+<div class="container-fluid">
+    <div class="container-fluid">
+        <h2>Latest Mars News</h2>
+        <h3>{{data.news_title}}</h3>
+        <p>{{data.news}}</p>
+    </div>        
+
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <h3>Featured Image</h3>        
+            <img src="{{data.featured}}" alt="featured image" style="width: 100%;">
+        </div>
+
+        <div class="col-md-4 mb-auto">
+            <ul>
+                <h3>Current Mars Weather</h3>
+                <p>{{data.weather}}</p>    
+            </ul>        
+            <ul>
+                <h3>Mars Facts</h3>
+                {{data.mars_data|safe}}
+                <a href="{{data.mars_data}}"></a>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+<div class="container"><div class = "row"> <hr></div></div>
+
+<div class="col-md-11 foo mb-auto">
+    <h3>Mars Hemispheres</h3>
+      <p></p>
+      <div class="row">
+          <div class="col-md-3">
+                <img src={{data.hemisphere[0].img_ulr}} style="width:100%;">
+                <div class="caption"style="font-weight: bold;">
+                    {{data.hemisphere[0].title}}
+                </div>                                           
+          </div>
+  
+          <div class="col-md-3">
+                <img src={{data.hemisphere[1].img_ulr}} style="width:100%;">
+                <div class="caption"style="font-weight: bold;">
+                    {{data.hemisphere[1].title}}
+                </div>                                           
+          </div>
+
+      </div>
+      <p></p>
+      <div class="row">
+            <div class="col-md-3">
+                    <img src={{data.hemisphere[2].img_ulr}} style="width:100%;">
+                    <div class="caption"style="font-weight: bold;">
+                        {{data.hemisphere[2].title}}
+                    </div>                                           
+              </div>
+      
+              <div class="col-md-3">
+                    <img src={{data.hemisphere[3].img_ulr}} style="width:100%;">
+                    <div class="caption"style="font-weight: bold;">
+                        {{data.hemisphere[3].title}}
+                    </div>                                           
+              </div>
+          </div>
+  </div>
+
+  <div class="container"><div class = "row"> <hr></div></div>
+  <div class="container"><div class = "row"> <p></p></div></div>
+  <div class="container"><div class = "row"> <p></p></div></div>
+  <div class="container"><div class = "row"> <p></p></div></div>
+  <div class="container"><div class = "row"> <p></p></div></div>
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>
